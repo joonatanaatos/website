@@ -3,13 +3,7 @@
   "tabWidth": 2,
   "semi": true,
   "singleQuote": true,
-  "importOrder": [
-    "^next(.*)$",
-    "^@mantine/(.*)$",
-    "^@/(.*)$",
-    "^./lib/(.*)$",
-    "[@./]*"
-  ],
+  "importOrder": ["^next(.*)$", "^@mantine/(.*)$", "^@/(.*)$", "[@./]*"],
   "importOrderSortSpecifiers": true,
   "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }

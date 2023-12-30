@@ -1,0 +1,6 @@
+.container {
+  padding-top: 10rem;
+  @mixin smaller-than $mantine-breakpoint-sm {
+    padding-top: 5rem;
+  }
+}

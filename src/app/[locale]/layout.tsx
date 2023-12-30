@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ColorSchemeScript, MantineProvider, Overlay } from '@mantine/core';
 import '@mantine/core/styles.css';
+import Header from '@/app/[locale]/lib/components/header';
 import { theme } from '@/util/theme';
-import Header from './lib/components/Header';
 import './global.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -27,7 +27,7 @@ export default function RootLayout({
         <MantineProvider theme={theme} defaultColorScheme="dark">
           <Overlay
             zIndex={-1}
-            gradient="linear-gradient(145deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5))"
+            gradient="linear-gradient(145deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3))"
           />
           <Header />
           {children}
