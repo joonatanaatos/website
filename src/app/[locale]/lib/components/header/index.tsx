@@ -18,7 +18,7 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { useTranslation } from '@/i18n/client';
-import { localeNames, locales } from '@/i18n/settings';
+import { fallbackLng, localeNames, locales } from '@/i18n/settings';
 import { useLocale } from '@/util/hooks';
 import { pages } from '@/util/pages';
 import NavigationCollapse from './NavigationCollapse';
@@ -36,10 +36,6 @@ function Header() {
 
   const changeColorScheme = () => {
     setColorScheme(computedColorScheme == 'light' ? 'dark' : 'light');
-  };
-
-  const changeLocale = (newLocale: string) => {
-    console.log(`Changing locale to ${newLocale}`);
   };
 
   return (
@@ -81,10 +77,13 @@ function Header() {
               {locales.map((l) => (
                 <MenuItem
                   key={l}
-                  onClick={() => changeLocale(l)}
                   disabled={l == locale}
                   component={Link}
-                  href={`/${l}/${pathname.split('/').slice(2).join('/')}`}
+                  href={
+                    locale === fallbackLng
+                      ? `/${l}/${pathname}`
+                      : `/${l}/${pathname.split('/').slice(2).join('/')}`
+                  }
                 >
                   {localeNames[l]}
                 </MenuItem>

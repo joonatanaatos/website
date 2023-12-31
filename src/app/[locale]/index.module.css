@@ -1,5 +1,8 @@
 .container {
-  padding-top: 10rem;
+  padding-top: 12rem;
+  @mixin smaller-than $mantine-breakpoint-lg {
+    padding-top: 8rem;
+  }
   @mixin smaller-than $mantine-breakpoint-sm {
     padding-top: 5rem;
   }

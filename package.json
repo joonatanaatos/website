@@ -35,6 +35,7 @@
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.33.2",
+    "html-loader": "^4.2.0",
     "postcss": "^8.4.32",
     "postcss-preset-mantine": "^1.12.2",
     "postcss-simple-vars": "^7.0.1",

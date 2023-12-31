@@ -3,6 +3,7 @@ import { PT_Sans } from 'next/font/google';
 import {
   Box,
   ColorSchemeScript,
+  Flex,
   MantineProvider,
   Overlay,
 } from '@mantine/core';
@@ -36,12 +37,15 @@ export default function RootLayout({
           <Overlay
             zIndex={-1}
             gradient="linear-gradient(145deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3))"
+            fixed
           />
-          <Box mih="100%">
-            <Header />
-            {children}
-          </Box>
-          <Footer locale={locale} />
+          <Flex direction="column" justify="space-between" mih="100%">
+            <Box>
+              <Header />
+              {children}
+            </Box>
+            <Footer locale={locale} />
+          </Flex>
         </MantineProvider>
       </body>
     </html>

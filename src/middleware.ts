@@ -24,7 +24,7 @@ export function middleware(request: NextRequest) {
       !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
   );
 
-  if (pathnameIsMissingLocale) {
+  if (pathnameIsMissingLocale && !pathname.startsWith('/documents')) {
     return NextResponse.rewrite(
       new URL(`/${fallbackLng}${pathname}`, request.url),
     );
