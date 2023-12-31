@@ -6,7 +6,7 @@ import { Button, Collapse, Flex, Paper } from '@mantine/core';
 import { useTranslation } from '@/i18n/client';
 import { useLocale } from '@/util/hooks';
 import { pages } from '@/util/pages';
-import classes from './header.module.css';
+import classes from './index.module.css';
 
 interface NavigationCollapseProps {
   opened: boolean;

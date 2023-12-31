@@ -18,7 +18,10 @@ const initI18next = async (lang: LocaleTypes, ns?: string) => {
   return i18nInstance;
 };
 
-export async function createTranslation(lang: string, ns?: string) {
+export async function createTranslation(
+  lang: string,
+  ns?: string,
+): Promise<{ t: (key: string) => string }> {
   const i18nextInstance = await initI18next(lang as LocaleTypes, ns);
 
   return {

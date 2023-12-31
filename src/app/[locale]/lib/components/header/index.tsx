@@ -22,7 +22,7 @@ import { localeNames, locales } from '@/i18n/settings';
 import { useLocale } from '@/util/hooks';
 import { pages } from '@/util/pages';
 import NavigationCollapse from './NavigationCollapse';
-import classes from './header.module.css';
+import classes from './index.module.css';
 import { IconHome, IconMoon, IconSun, IconWorld } from '@tabler/icons-react';
 
 function Header() {

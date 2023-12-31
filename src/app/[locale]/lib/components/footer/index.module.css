@@ -1,0 +1,9 @@
+.footer {
+  height: 3rem;
+  margin-top: -3rem;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
