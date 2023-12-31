@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ActionIcon, Anchor, Container, Group } from '@mantine/core';
 import { Text } from '@mantine/core';
 import { createTranslation } from '@/i18n/server';
@@ -13,10 +14,20 @@ async function Footer({ locale }: { locale: string }) {
           {t('contact')}: <Anchor size="sm">joonatan.aatos@gmail.com</Anchor>
         </Text>
         <Group>
-          <ActionIcon variant="subtle" size="md">
+          <ActionIcon
+            variant="subtle"
+            size="md"
+            component={Link}
+            href="https://t.me/joonatanaatos"
+          >
             <IconBrandTelegram size="md" />
           </ActionIcon>
-          <ActionIcon variant="subtle" size="md">
+          <ActionIcon
+            variant="subtle"
+            size="md"
+            component={Link}
+            href="https://github.com/joonatan-aatos"
+          >
             <IconBrandGithub size="md" />
           </ActionIcon>
         </Group>
