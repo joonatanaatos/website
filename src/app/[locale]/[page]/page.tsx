@@ -1,6 +1,8 @@
 import { redirect } from 'next/navigation';
 import { TypographyStylesProvider } from '@mantine/core';
+import Animate from '@/lib/components/animate';
 import { pages } from '@/util/pages';
+import AnimatedPage from './AnimatedPage';
 import classes from './index.module.css';
 
 const spacedPages = ['projects', 'experience'];
@@ -21,13 +23,22 @@ async function Page({
     redirect(`/${locale}`);
   }
 
+  const spaced = spacedPages.includes(page);
+
   return (
     <TypographyStylesProvider p="sm">
-      <div
-        data-spaced={spacedPages.includes(page)}
-        className={classes.content}
-        dangerouslySetInnerHTML={{ __html: pageHtml.default }}
-      />
+      {spaced ? (
+        <div data-spaced className={classes.content}>
+          <AnimatedPage html={pageHtml.default} />
+        </div>
+      ) : (
+        <Animate>
+          <div
+            className={classes.content}
+            dangerouslySetInnerHTML={{ __html: pageHtml.default }}
+          />
+        </Animate>
+      )}
     </TypographyStylesProvider>
   );
 }

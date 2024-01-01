@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Button, Container, Group, Text, Title } from '@mantine/core';
 import { createTranslation } from '@/i18n/server';
+import Animate from '@/lib/components/animate';
 import { pages } from '@/util/pages';
 import classes from './index.module.css';
 
@@ -13,15 +14,21 @@ export default async function Home({
   return (
     <main>
       <Container size="lg" className={classes.container}>
-        <Title size="3rem">Joonatan Korpela</Title>
-        <Text size="xl">{t('subtitle')}</Text>
-        <Group pt="lg">
-          {pages.map((page) => (
-            <Button key={page} component={Link} href={`/${locale}/${page}`}>
-              <Text>{t(`pages.${page}`)}</Text>
-            </Button>
-          ))}
-        </Group>
+        <Animate>
+          <Title size="3rem">Joonatan Korpela</Title>
+        </Animate>
+        <Animate delay={1}>
+          <Text size="xl">{t('subtitle')}</Text>
+        </Animate>
+        <Animate delay={2}>
+          <Group pt="lg">
+            {pages.map((page) => (
+              <Button key={page} component={Link} href={`/${locale}/${page}`}>
+                <Text>{t(`pages.${page}`)}</Text>
+              </Button>
+            ))}
+          </Group>
+        </Animate>
       </Container>
     </main>
   );

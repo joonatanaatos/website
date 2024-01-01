@@ -12,6 +12,7 @@
     "@mantine/core": "^7.3.2",
     "@mantine/hooks": "^7.3.2",
     "@tabler/icons-react": "^2.44.0",
+    "framer-motion": "^10.16.16",
     "i18next": "^23.7.13",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-resources-to-backend": "^1.2.0",

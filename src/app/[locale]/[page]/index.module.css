@@ -23,6 +23,10 @@
     margin-top: 10rem;
     margin-bottom: 10rem;
 
+    @mixin smaller-than $mantine-breakpoint-sm {
+      margin-top: 5rem;
+    }
+
     img {
       width: 24rem;
       @mixin smaller-than $mantine-breakpoint-sm {
