@@ -5,6 +5,16 @@
   height: 5rem;
 }
 
+.header {
+  @mixin dark {
+    background-color: var(--mantine-color-dark-8);
+  }
+  @mixin light {
+    background-color: var(--mantine-color-gray-light);
+  }
+  box-shadow: 0rem 0.5rem 3rem 1rem rgba(0, 0, 0, 0.2);
+}
+
 .button {
   color: var(--mantine-color-text);
   &[data-active='true'] {

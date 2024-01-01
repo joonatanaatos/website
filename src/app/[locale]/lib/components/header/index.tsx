@@ -24,6 +24,7 @@ import { pages } from '@/util/pages';
 import NavigationCollapse from './NavigationCollapse';
 import classes from './index.module.css';
 import { IconHome, IconMoon, IconSun, IconWorld } from '@tabler/icons-react';
+import Headroom from 'react-headroom';
 
 function Header() {
   const pathname = usePathname();
@@ -39,67 +40,69 @@ function Header() {
   };
 
   return (
-    <header>
-      <Container className={classes.container} size="xl">
-        <Group>
-          <Button
-            variant="transparent"
-            component={Link}
-            href={`/${locale}`}
-            className={classes.button}
-            data-active={pathname.replace(locale, '') === '/'}
-          >
-            <IconHome size="1.8rem" />
-          </Button>
-          <Box visibleFrom="sm">
-            {pages.map((page) => (
-              <Button
-                variant="transparent"
-                className={classes.button}
-                component={Link}
-                key={page}
-                href={`/${locale}/${page}`}
-                data-active={pathname.split('/').includes(page)}
-              >
-                {t(`pages.${page}`)}
-              </Button>
-            ))}
-          </Box>
-        </Group>
-        <Group>
-          <Menu position="bottom-end">
-            <MenuTarget>
-              <ActionIcon size="lg" variant="light">
-                <IconWorld />
-              </ActionIcon>
-            </MenuTarget>
-            <MenuDropdown>
-              {locales.map((l) => (
-                <MenuItem
-                  key={l}
-                  disabled={l == locale}
+    <Headroom>
+      <header className={classes.header}>
+        <Container className={classes.container} size="xl" h="5rem">
+          <Group>
+            <Button
+              variant="transparent"
+              component={Link}
+              href={`/${locale}`}
+              className={classes.button}
+              data-active={pathname.replace(locale, '') === '/'}
+            >
+              <IconHome size="1.8rem" />
+            </Button>
+            <Box visibleFrom="sm">
+              {pages.map((page) => (
+                <Button
+                  variant="transparent"
+                  className={classes.button}
                   component={Link}
-                  href={
-                    locale === fallbackLng
-                      ? `/${l}/${pathname}`
-                      : `/${l}/${pathname.split('/').slice(2).join('/')}`
-                  }
+                  key={page}
+                  href={`/${locale}/${page}`}
+                  data-active={pathname.split('/').includes(page)}
                 >
-                  {localeNames[l]}
-                </MenuItem>
+                  {t(`pages.${page}`)}
+                </Button>
               ))}
-            </MenuDropdown>
-          </Menu>
-          <ActionIcon size="lg" variant="light" onClick={changeColorScheme}>
-            {computedColorScheme == 'light' ? <IconMoon /> : <IconSun />}
-          </ActionIcon>
-          <Box hiddenFrom="sm">
-            <Burger onClick={toggle} opened={opened} />
-          </Box>
-        </Group>
-      </Container>
-      <NavigationCollapse opened={opened} onClose={toggle} />
-    </header>
+            </Box>
+          </Group>
+          <Group>
+            <Menu position="bottom-end">
+              <MenuTarget>
+                <ActionIcon size="lg" variant="light">
+                  <IconWorld />
+                </ActionIcon>
+              </MenuTarget>
+              <MenuDropdown>
+                {locales.map((l) => (
+                  <MenuItem
+                    key={l}
+                    disabled={l == locale}
+                    component={Link}
+                    href={
+                      locale === fallbackLng
+                        ? `/${l}/${pathname}`
+                        : `/${l}/${pathname.split('/').slice(2).join('/')}`
+                    }
+                  >
+                    {localeNames[l]}
+                  </MenuItem>
+                ))}
+              </MenuDropdown>
+            </Menu>
+            <ActionIcon size="lg" variant="light" onClick={changeColorScheme}>
+              {computedColorScheme == 'light' ? <IconMoon /> : <IconSun />}
+            </ActionIcon>
+            <Box hiddenFrom="sm">
+              <Burger onClick={toggle} opened={opened} />
+            </Box>
+          </Group>
+        </Container>
+        <NavigationCollapse opened={opened} onClose={toggle} />
+      </header>
+    </Headroom>
   );
 }
 
