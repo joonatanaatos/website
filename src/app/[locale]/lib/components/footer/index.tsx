@@ -1,17 +1,43 @@
+'use client';
+
 import Link from 'next/link';
-import { ActionIcon, Anchor, Container, Group } from '@mantine/core';
+import {
+  ActionIcon,
+  Anchor,
+  Container,
+  CopyButton,
+  Group,
+  Popover,
+  PopoverDropdown,
+  PopoverTarget,
+} from '@mantine/core';
 import { Text } from '@mantine/core';
-import { createTranslation } from '@/i18n/server';
+import { useTranslation } from '@/i18n/client';
+import { LocaleTypes } from '@/i18n/settings';
 import classes from './index.module.css';
 import { IconBrandGithub, IconBrandTelegram } from '@tabler/icons-react';
 
-async function Footer({ locale }: { locale: string }) {
-  const { t } = await createTranslation(locale);
+function Footer({ locale }: { locale: LocaleTypes }) {
+  const { t } = useTranslation(locale);
   return (
     <footer className={classes.footer}>
       <Container size="lg" className={classes.container}>
         <Text size="sm">
-          {t('contact')}: <Anchor size="sm">joonatan.aatos@gmail.com</Anchor>
+          {t('contact')}:{' '}
+          <CopyButton value="joonatan.aatos@gmail.com">
+            {({ copied, copy }) => (
+              <Popover opened={copied} withArrow>
+                <PopoverTarget>
+                  <Anchor size="sm" onClick={copy}>
+                    joonatan.aatos@gmail.com
+                  </Anchor>
+                </PopoverTarget>
+                <PopoverDropdown>
+                  <Text size="sm">{t('copied')}</Text>
+                </PopoverDropdown>
+              </Popover>
+            )}
+          </CopyButton>
         </Text>
         <Group>
           <ActionIcon

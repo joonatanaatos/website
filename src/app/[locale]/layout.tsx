@@ -9,6 +9,7 @@ import {
 } from '@mantine/core';
 import '@mantine/core/styles.css';
 import Header from '@/app/[locale]/lib/components/header';
+import { LocaleTypes } from '@/i18n/settings';
 import { theme } from '@/util/theme';
 import './global.css';
 import Footer from './lib/components/footer';
@@ -44,7 +45,7 @@ export default function RootLayout({
               <Header />
               {children}
             </Box>
-            <Footer locale={locale} />
+            <Footer locale={locale as LocaleTypes} />
           </Flex>
         </MantineProvider>
       </body>
