@@ -26,7 +26,7 @@ async function Footer({ locale }: { locale: string }) {
             variant="subtle"
             size="md"
             component={Link}
-            href="https://github.com/joonatan-aatos"
+            href="https://github.com/joonatanaatos"
           >
             <IconBrandGithub size="md" />
           </ActionIcon>
