@@ -19,10 +19,10 @@
   color: var(--mantine-color-text);
   &[data-active='true'] {
     @mixin dark {
-      color: var(--mantine-color-crimson-3);
+      color: var(--mantine-primary-color-3);
     }
     @mixin light {
-      color: var(--mantine-color-crimson-7);
+      color: var(--mantine-primary-color-7);
     }
   }
 }
