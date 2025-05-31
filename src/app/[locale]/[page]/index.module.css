@@ -16,8 +16,18 @@
     margin-bottom: 1.5rem;
   }
 
+  h3 {
+    margin-top: 1.8rem;
+  }
+
   p {
     text-align: justify;
+    font-size: 1.1rem;
+  }
+
+  span {
+    font-weight: bold;
+    color: var(--mantine-color-crimson-4);
   }
 
   &[data-spaced='true'] {

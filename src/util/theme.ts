@@ -32,4 +32,10 @@ export const theme = createTheme({
     crimson,
     black,
   },
+  headings: {
+    sizes: {
+      h2: { fontSize: '1.8rem' },
+      h3: { fontSize: '1.4rem' },
+    },
+  },
 });
