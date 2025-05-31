@@ -16,3 +16,10 @@ html {
     font-size: 12px;
   }
 }
+
+.faded-image {
+  mask-image: linear-gradient(to top, transparent 0%, black 20%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 20%);
+
+  box-shadow: none;
+}

@@ -9,7 +9,11 @@ interface AnimatedPageProps {
 
 function AnimatedPage({ html }: AnimatedPageProps) {
   const sections: ReactNode[] = [];
-  const parser = new DOMParser();
+  const parser = DOMParser ? new DOMParser() : undefined;
+  if (!parser) {
+    console.error('DOMParser is not available in this environment.');
+    return null;
+  }
   const doc = parser.parseFromString(html, 'text/html');
   for (const div of doc.body.querySelectorAll('div')) {
     sections.push(

@@ -44,7 +44,7 @@ function Footer({ locale }: { locale: LocaleTypes }) {
             variant="subtle"
             size="md"
             component={Link}
-            href="https://t.me/joonatanaatos"
+            href="https://t.me/BitTiKippari"
           >
             <IconBrandTelegram size="md" />
           </ActionIcon>

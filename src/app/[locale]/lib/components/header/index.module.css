@@ -8,11 +8,12 @@
 .header {
   @mixin dark {
     background-color: var(--mantine-color-dark-8);
+    box-shadow: 0rem 0.5rem 3rem 1rem rgba(0, 0, 0, 0.2);
   }
   @mixin light {
-    background-color: lighten(var(--mantine-color-dark-0), 0.1);
+    background-color: lighten(var(--mantine-color-dark-0), 0.7);
+    box-shadow: 0rem 0.5rem 4rem 1rem rgba(0, 0, 0, 0.1);
   }
-  box-shadow: 0rem 0.5rem 3rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .button {

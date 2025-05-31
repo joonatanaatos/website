@@ -1,18 +1,13 @@
 import type { Metadata } from 'next';
 import { PT_Sans } from 'next/font/google';
-import {
-  Box,
-  ColorSchemeScript,
-  Flex,
-  MantineProvider,
-  Overlay,
-} from '@mantine/core';
+import { Box, ColorSchemeScript, Flex, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import Header from '@/app/[locale]/lib/components/header';
 import { LocaleTypes } from '@/i18n/settings';
 import { theme } from '@/util/theme';
 import './global.css';
 import Footer from './lib/components/footer';
+import Gradient from './lib/components/gradient';
 
 const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] });
 
@@ -35,11 +30,7 @@ export default function RootLayout({
       </head>
       <body className={ptSans.className}>
         <MantineProvider theme={theme} defaultColorScheme="dark">
-          <Overlay
-            zIndex={-1}
-            gradient="linear-gradient(145deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3))"
-            fixed
-          />
+          <Gradient />
           <Flex direction="column" justify="space-between" mih="100%">
             <Box>
               <Header />
