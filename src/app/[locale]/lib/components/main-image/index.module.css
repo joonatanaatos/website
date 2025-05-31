@@ -1,0 +1,12 @@
+.container {
+  position: relative;
+  float: right;
+  margin-top: -12rem;
+  width: 500px;
+  mask-image: linear-gradient(to top, transparent 0%, black 30%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 30%);
+
+  @mixin smaller-than $mantine-breakpoint-sm {
+    display: none;
+  }
+}

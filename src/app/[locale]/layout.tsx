@@ -1,13 +1,17 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { PT_Sans } from 'next/font/google';
 import { Box, ColorSchemeScript, Flex, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
-import Header from '@/app/[locale]/lib/components/header';
 import { LocaleTypes } from '@/i18n/settings';
 import { theme } from '@/util/theme';
 import './global.css';
 import Footer from './lib/components/footer';
-import Gradient from './lib/components/gradient';
+
+const Header = dynamic(() => import('./lib/components/header'), { ssr: false });
+const Gradient = dynamic(() => import('./lib/components/gradient'), {
+  ssr: false,
+});
 
 const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] });
 

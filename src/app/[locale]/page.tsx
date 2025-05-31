@@ -4,6 +4,7 @@ import { createTranslation } from '@/i18n/server';
 import Animate from '@/lib/components/animate';
 import { pages } from '@/util/pages';
 import classes from './index.module.css';
+import MainImage from './lib/components/main-image';
 
 export default async function Home({
   params: { locale },
@@ -14,8 +15,13 @@ export default async function Home({
   return (
     <main>
       <Container size="lg" className={classes.container}>
+        <Animate delay={2}>
+          <MainImage />
+        </Animate>
         <Animate>
-          <Title size="3rem">Joonatan Korpela</Title>
+          <Title size="3rem" className={classes.title}>
+            Joonatan Korpela
+          </Title>
         </Animate>
         <Animate delay={1}>
           <Text size="xl">{t('subtitle')}</Text>

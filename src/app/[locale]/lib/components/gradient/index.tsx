@@ -2,7 +2,7 @@
 
 import { Overlay, useMantineColorScheme } from '@mantine/core';
 
-export default function Gradient() {
+function Gradient() {
   const theme = useMantineColorScheme();
   const isDark = theme.colorScheme === 'dark';
   return (
@@ -17,3 +17,5 @@ export default function Gradient() {
     />
   );
 }
+
+export default Gradient;
