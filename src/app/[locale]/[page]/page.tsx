@@ -8,17 +8,18 @@ import classes from './index.module.css';
 const spacedPages = ['projects', 'experience'];
 
 async function Page({
-  params: { locale, page },
+  params,
 }: {
-  params: { locale: string; page: string };
+  params: Promise<{ locale: string; page: string }>;
 }) {
+  const { locale, page } = await params;
   if (!pages.includes(page)) {
     redirect(`/${locale}`);
   }
 
   let pageHtml = undefined;
   try {
-    pageHtml = await import(`/public/pages/${page}/${locale}.html`);
+    pageHtml = await import(`../../../../public/pages/${page}/${locale}.html`);
   } catch (error) {
     redirect(`/${locale}`);
   }

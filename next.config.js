@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  compiler: {
-    styledComponents: true,
+  turbopack: {
+    rules: {
+      '*.html': {
+        loaders: ['html-loader'],
+        as: '*.js',
+      },
+    },
   },
   webpack: (config) => {
     config.module.rules.push({

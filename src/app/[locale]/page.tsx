@@ -1,16 +1,17 @@
-import Link from 'next/link';
-import { Button, Container, Group, Text, Title } from '@mantine/core';
+import { Container, Group, Text, Title } from '@mantine/core';
 import { createTranslation } from '@/i18n/server';
 import Animate from '@/lib/components/animate';
 import { pages } from '@/util/pages';
 import classes from './index.module.css';
 import MainImage from './lib/components/main-image';
+import LinkButton from './lib/components/link-button';
 
 export default async function Home({
-  params: { locale },
+  params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   const { t } = await createTranslation(locale);
   return (
     <main>
@@ -29,9 +30,9 @@ export default async function Home({
         <Animate delay={2}>
           <Group pt="lg">
             {pages.map((page) => (
-              <Button key={page} component={Link} href={`/${locale}/${page}`}>
-                <Text>{t(`pages.${page}`)}</Text>
-              </Button>
+              <LinkButton key={page} href={`/${locale}/${page}`}>
+                {t(`pages.${page}`)}
+              </LinkButton>
             ))}
           </Group>
         </Animate>
