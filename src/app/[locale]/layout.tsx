@@ -5,8 +5,8 @@ import '@mantine/core/styles.css';
 import { LocaleTypes } from '@/i18n/settings';
 import { theme } from '@/util/theme';
 import './global.css';
+import { ClientGradient, ClientHeader } from './lib/components/client-layout';
 import Footer from './lib/components/footer';
-import { ClientHeader, ClientGradient } from './lib/components/client-layout';
 
 const ptSans = PT_Sans({ weight: '400', subsets: ['latin'] });
 
@@ -31,8 +31,8 @@ export default async function RootLayout({
       <body className={ptSans.className}>
         <MantineProvider theme={theme} defaultColorScheme="dark">
           <ClientGradient />
-          <Flex direction="column" justify="space-between" mih="100%">
-            <Box>
+          <Flex direction="column" mih="100dvh">
+            <Box flex={1}>
               <ClientHeader />
               {children}
             </Box>
