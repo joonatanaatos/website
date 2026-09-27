@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { PT_Sans } from 'next/font/google';
+import '@mantine/carousel/styles.css';
 import { Box, ColorSchemeScript, Flex, MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { LocaleTypes } from '@/i18n/settings';

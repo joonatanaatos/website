@@ -3,8 +3,8 @@ import { createTranslation } from '@/i18n/server';
 import Animate from '@/lib/components/animate';
 import { pages } from '@/util/pages';
 import classes from './index.module.css';
-import MainImage from './lib/components/main-image';
 import LinkButton from './lib/components/link-button';
+import MainImage from './lib/components/main-image';
 
 export default async function Home({
   params,
